@@ -1,0 +1,25 @@
+<!-- templates/user_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ object.first_name }} {{ object.last_name }}{% endblock title %}
+
+{% block content %}
+<h2>User Detail for {{ object.username }}</h2>
+
+<ul>
+    <li>Username: {{ object.username }}</li>
+    <li>First name: {{ object.first_name }}</li>
+    <li>Last name: {{ object.last_name }}</li>
+    <li>Email: <a href="mailto:{{ object.email }}">{{ object.email }}</a></li>
+    {% if age %}
+    <li>Age: {{ object.age }}</li>
+    {% endif %}
+</ul>
+
+<h2>All articles from this author</h2>
+<ul>
+{% for article in object.articles.all %}
+    <li><a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock content %}

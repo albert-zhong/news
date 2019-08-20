@@ -16,7 +16,7 @@
 
 
     {% if user.is_authenticated %}
-        <p>Hi {{ user.username }}!</p>
+        <p>Hi <a href="{% url 'user_detail' user.username %}">{{ user.username }}</a>!</p>
         <p><a href="{% url 'logout' %}">Log Out</a></p>
     {% else %}
         <p>You are not logged in</p>

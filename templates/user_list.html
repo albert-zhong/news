@@ -1,0 +1,13 @@
+<!-- templates/article_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}User List{% endblock title %}
+
+{% block content %}
+<h2>Users</h2>
+<ul>
+    {% for user in object_list %}
+        <li>{{ user }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

@@ -13,13 +13,14 @@ class Article(models.Model):
     author = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
+        related_name='articles',
     )
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('article_detail', args=[str(self.id)])
+        return reverse('article_detail', args=[str(self.pk)])
 
 
 class Comment(models.Model):
