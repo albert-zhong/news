@@ -13,16 +13,20 @@
             </div>
             <div class="card-body">
                 <p>{{ article.body }}</p>
-                <a href="{% url 'article_edit' article.pk %}">Edit</a> |
-                <a href="{% url 'article_delete' article.pk %}">Delete</a>
             </div>
             <div class="card-footer">
-                {% for comment in article.comments.all %}
-                    <p>
-                        <span class="font-weight-bold">{{ comment.author }} &middot;</span>
-                        {{ comment }}
-                    </p>
-                {% endfor %}
+                <a href="{% url 'article_detail' article.pk %}">{{ article.comments.all.count }} 
+                    {% if article.comments.all.count == 1 %}
+                        comment
+                    {% else %}
+                        comments
+                    {% endif %}
+                </a>
+                <br />
+                {% if user == article.author %}
+                    <a href="{% url 'article_edit' article.pk %}">Edit</a> |
+                    <a href="{% url 'article_delete' article.pk %}">Delete</a>
+                {% endif %}
             </div>
         </div>
         <br />

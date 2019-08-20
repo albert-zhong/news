@@ -1,0 +1,8 @@
+<!-- templates/profile.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ object.first_name }} {{ object.last_name }}{% endblock title %}
+
+{% block content %}
+    <h2>{{ object.first_name }} {{ object.last_name }}</h2>
+{% endblock content %}
