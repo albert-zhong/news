@@ -1,2 +1,16 @@
 .vscode/
 newspaper_project/passwords.py
+*.pyc
+*.pyo
+*.mo
+*~
+.coverage
+db.sqlite3
+uwsgi.ini
+log/**
+!log/placeholder
+media/**
+!media/**/init.txt
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
